@@ -18,11 +18,11 @@
   <form #loginCreds="ngForm" (ngSubmit)="login()">
     <ion-item>
       <ion-label>Username</ion-label>
-      <ion-input type="text" [(ngModel)]="user.userName" name="username" required></ion-input>
+      <ion-input type="text" value="13785641151" [(ngModel)]="user.phone" name="phone" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Password</ion-label>
-      <ion-input type="password" [(ngModel)]="user.password" name="password" required></ion-input>
+      <ion-input type="password" value ="123456" [(ngModel)]="user.password" name="password" required></ion-input>
     </ion-item>
     <div padding>
       <button full ion-button type="submit" [disabled]="!loginCreds.valid">Login</button>

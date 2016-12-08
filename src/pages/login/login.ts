@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { NavController,ViewController } from 'ionic-angular';
 import { AppGlobal } from '../../app-global'
+import { UserProvider} from '../../providers/user-provider';
 /*
   Generated class for the Login page.
 
@@ -9,7 +10,8 @@ import { AppGlobal } from '../../app-global'
 */
 @Component({
   selector: 'page-login',
-  templateUrl: 'login.html'
+  templateUrl: 'login.html',
+  providers:[UserProvider]
 })
 export class LoginPage {
 
@@ -18,7 +20,8 @@ export class LoginPage {
 
   constructor(private _appGlobal: AppGlobal ,
     public navCtrl: NavController,
-    public viewCtrl: ViewController) {
+    public viewCtrl: ViewController,
+    public _loginService: UserProvider) {
     
   }
 
@@ -36,11 +39,20 @@ export class LoginPage {
     /**
      *  this logs in the user using the form credentials
      */
-    login(credentials) {
+    login() {
       console.log(JSON.stringify(this.user));
         try {
             // login usig the email/password auth provider
-            
+            this._loginService.login(this.user).then((user)=>{
+              console.log(JSON.stringify(user));
+              if(user['userId'] != undefined)  {
+                this._appGlobal.setLoginStatus(true);
+                this._appGlobal.loginedUser = user;
+              }  
+            }).catch((error)=>{
+              console.log(error);
+            });
+
         } catch (EE) {
             console.log(EE)
         }

@@ -7,6 +7,8 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 @Injectable()
 export class AppGlobal {
 
+    loginedUser:Object = null;
+
     public baseUrl:string = "http://182.92.219.201/rta-web/";
 
     public apiUser =  {
