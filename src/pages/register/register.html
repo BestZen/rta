@@ -7,12 +7,43 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>register</ion-title>
+    <ion-title>系统注册</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <form #registerCreds="ngForm" (ngSubmit)="register()" inset>
+    <ion-item>
+      <ion-label>用户名</ion-label>
+      <ion-input type="text" [(ngModel)]="user.name" name="name" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>真实姓名</ion-label>
+      <ion-input type="text" [(ngModel)]="user.realname" name="realname" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>手机</ion-label>
+      <ion-input type="text" [(ngModel)]="user.phone" name="phone" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>邮箱</ion-label>
+      <ion-input type="text" [(ngModel)]="user.mail" name="mail" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>密码</ion-label>
+      <ion-input type="text" [(ngModel)]="user.password" name="password" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>确认密码</ion-label>
+      <ion-input type="password" [(ngModel)]="user.password" name="password" required></ion-input>
+    </ion-item>
+    <div padding>
+      <button full ion-button type="submit" [disabled]="!registerCreds.valid">注册</button>
+    </div>
+    <div padding>
+      <p *ngIf="error" class="error">Error:&nbsp;{{ error.code }}</p>
+    </div>
+  </form>
 </ion-content>

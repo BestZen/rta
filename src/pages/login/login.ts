@@ -2,6 +2,8 @@ import { Component} from '@angular/core';
 import { NavController,ViewController } from 'ionic-angular';
 import { AppGlobal } from '../../app-global'
 import { UserProvider} from '../../providers/user-provider';
+import { UserModel} from '../../models/user-model'
+import {RegisterPage} from '../../pages/register/register'
 /*
   Generated class for the Login page.
 
@@ -16,7 +18,7 @@ import { UserProvider} from '../../providers/user-provider';
 export class LoginPage {
 
   public isLoggedIn:boolean ;
-  user :Object= {};
+  user :Object = {};
 
   constructor(private _appGlobal: AppGlobal ,
     public navCtrl: NavController,
@@ -27,6 +29,8 @@ export class LoginPage {
 
   ionViewDidLoad() {
     console.log('Hello LoginPage Page');
+    this.user['phone'] = "13785641151";
+    this.user['password'] = "123456";
   }
 
 /** 
@@ -43,11 +47,11 @@ export class LoginPage {
       console.log(JSON.stringify(this.user));
         try {
             // login usig the email/password auth provider
-            this._loginService.login(this.user).then((user)=>{
-              console.log(JSON.stringify(user));
-              if(user['userId'] != undefined)  {
+            this._loginService.login(this.user).then((userModle)=>{
+              console.log(JSON.stringify(userModle));
+              if(userModle['userId'] != undefined)  {
                 this._appGlobal.setLoginStatus(true);
-                this._appGlobal.loginedUser = user;
+                this._appGlobal.loginedUser = userModle;
               }  
             }).catch((error)=>{
               console.log(error);
@@ -57,5 +61,9 @@ export class LoginPage {
             console.log(EE)
         }
 
+    }
+
+    register(){
+      this.navCtrl.push(RegisterPage,{});
     }
 }

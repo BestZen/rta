@@ -15,6 +15,8 @@ export class RegisterPage {
 
   constructor(public navCtrl: NavController) {}
 
+  user :Object = {};
+
   ionViewDidLoad() {
     console.log('Hello RegisterPage Page');
   }

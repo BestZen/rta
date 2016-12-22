@@ -21748,3 +21748,8 @@ sub {
     padding-top: calc(16px + 20px);
   }
 }
+
+page-register {
+  ion-label-width: 200px;
+  ion-label-text-align: right;
+}
