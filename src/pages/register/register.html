@@ -5,11 +5,9 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
     <ion-title>系统注册</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
@@ -17,11 +15,11 @@
   <form #registerCreds="ngForm" (ngSubmit)="register()" inset>
     <ion-item>
       <ion-label>用户名</ion-label>
-      <ion-input type="text" [(ngModel)]="user.name" name="name" required></ion-input>
+      <ion-input type="text" [(ngModel)]="user.name" name="name"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>真实姓名</ion-label>
-      <ion-input type="text" [(ngModel)]="user.realname" name="realname" required></ion-input>
+      <ion-input type="text" [(ngModel)]="user.realName" name="realName" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>手机</ion-label>
@@ -29,7 +27,7 @@
     </ion-item>
     <ion-item>
       <ion-label>邮箱</ion-label>
-      <ion-input type="text" [(ngModel)]="user.mail" name="mail" required></ion-input>
+      <ion-input type="text" [(ngModel)]="user.email" name="email" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>密码</ion-label>

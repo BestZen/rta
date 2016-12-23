@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
+import {UserProvider} from '../../providers/user-provider'
+import {AppGlobal} from '../../app-global'
 /*
   Generated class for the Register page.
 
@@ -9,16 +10,43 @@ import { NavController } from 'ionic-angular';
 */
 @Component({
   selector: 'page-register',
-  templateUrl: 'register.html'
+  templateUrl: 'register.html',
+  providers:[UserProvider]
 })
 export class RegisterPage {
 
-  constructor(public navCtrl: NavController) {}
-
   user :Object = {};
+
+  constructor(public navCtrl: NavController, 
+    private _appGlobal:AppGlobal,
+    private _userService:UserProvider) {}
+
 
   ionViewDidLoad() {
     console.log('Hello RegisterPage Page');
+    this.user['realName'] = "寇永赞";
+    this.user['phone'] = '18600875425';
+    this.user['password'] = '123456';
+    this.user['email'] = 'karyjan@163.com';
   }
 
+  register(){
+    console.log(JSON.stringify(this.user));
+        try {
+            // login usig the email/password auth provider
+            this._userService.register(this.user).then((userModle)=>{
+              console.log(JSON.stringify(userModle));
+              if(userModle['userId'] != undefined)  {
+                this._appGlobal.setLoginStatus(true);
+                this._appGlobal.loginedUser = userModle;
+                this.navCtrl.pop();
+              }  
+            }).catch((error)=>{
+              console.log(error);
+            });
+
+        } catch (EE) {
+            console.log(EE)
+        }
+  }
 }

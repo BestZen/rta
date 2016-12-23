@@ -32,7 +32,7 @@ export class UserProvider {
   }
 
   register(form):Promise<UserModel>{
-    let queryString = `phone=${form.phone}&password=${form.password}`;
+    let queryString = `realName=${form.realName}&phone=${form.phone}&password=${form.password}&email=${form.email}`;
     let requestUrl = this._appGlobal.baseUrl + this._appGlobal.apiUser.register+ "?" + queryString;
 
     let headers = new Headers({ 'Content-Type': 'application/json' });
