@@ -1,0 +1,84 @@
+<!--
+  Generated template for the Participant page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>participant</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <h2 text-center></h2>
+      <h3 text-center> 房间ID：<span>{{roomID}}</span></h3>
+      <div text-center>当前参与人数：<span>{{count}}</span></div>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        <ion-col text-center>
+          <button ion-button color="secondary" (click)="start()" [disabled]="connected">加入</button>
+        </ion-col>
+        <ion-col text-center>
+          <ion-input type="text" placeholder="房间号" [(ngModel)]="roomID" [disabled]="connected"></ion-input>
+        </ion-col>
+        <ion-col text-center>
+          <button ion-button color="danger" (click)="end()">退出</button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+
+
+  <br>
+
+  <ion-card>
+
+    <ion-card-header>
+      作答区
+    </ion-card-header>
+
+    <ion-card-content>
+      <div [ngSwitch]="quizType">
+        <div *ngSwitchCase="'SELECT'">
+          <ion-row>
+            <ion-col>
+              <button ion-button>A</button>
+            </ion-col>
+            <ion-col>
+              <button ion-button>B</button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <button ion-button>A</button>
+            </ion-col>
+            <ion-col>
+              <button ion-button>B</button>
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <div *ngSwitchCase="'TRUEFALSE'">
+          <ion-row>
+            <ion-col>
+              <button ion-button>True</button>
+            </ion-col>
+            <ion-col>
+              <button ion-button>False</button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </div>
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

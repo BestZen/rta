@@ -5,33 +5,38 @@
 </ion-header>
 
 <ion-content padding>
-  <h2 text-center></h2>
-  <h3 text-center> 房间ID：<span>{{roomID}}</span></h3>
-  <div text-center>当前参与人数：<span>{{count}}</span></div>
-  
-  <div padding>
-    <ion-segment [(ngModel)]="quizType" (ionChange)="onQuizChange()">
-      <ion-segment-button value="SELECT">
-        选择题
-      </ion-segment-button>
-      <ion-segment-button value="TRUEFALSE">
-        是非题
-      </ion-segment-button>
-      <ion-segment-button value="FIllBLANK">
-        填空题
-      </ion-segment-button>
-    </ion-segment>
-</div>
+  <ion-card>
+    <ion-card-header>
+      <h2 text-center></h2>
+      <h3 text-center> 房间ID：<span>{{roomID}}</span></h3>
+      <div text-center>当前参与人数：<span>{{count}}</span></div>
+    </ion-card-header>
+    <ion-card-content>
+        <ion-segment [(ngModel)]="quizType" (ionChange)="onQuizChange()">
+          <ion-segment-button value="SELECT">
+            选择题
+          </ion-segment-button>
+          <ion-segment-button value="TRUEFALSE">
+            是非题
+          </ion-segment-button>
+          <ion-segment-button value="FIllBLANK">
+            填空题
+          </ion-segment-button>
+        </ion-segment>
+    </ion-card-content>
+  </ion-card>
 
-<ion-row>
-  <ion-col text-center >
-    <button ion-button color="secondary" (click)="start()">开始</button>
-  </ion-col>  
-  <ion-col>
-  </ion-col>  
-  <ion-col text-center>
-    <button ion-button color="danger" (click)="end()">结束</button>
-  </ion-col>  
-</ion-row>
- 
+
+  <ion-row>
+    <ion-col text-center>
+      <button ion-button color="secondary" (click)="start()">开始</button>
+    </ion-col>
+    <ion-col>
+        <button ion-button (click)="connect()" [disabled]="connected">创建房间</button>
+    </ion-col>
+    <ion-col text-center>
+      <button ion-button color="danger" (click)="end()">结束</button>
+    </ion-col>
+  </ion-row>
+
 </ion-content>

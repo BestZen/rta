@@ -37,8 +37,7 @@ export class RegisterPage {
             this._userService.register(this.user).then((userModle)=>{
               console.log(JSON.stringify(userModle));
               if(userModle['userId'] != undefined)  {
-                this._appGlobal.setLoginStatus(true);
-                this._appGlobal.loginedUser = userModle;
+                console.log(JSON.stringify(userModle));
                 this.navCtrl.pop();
               }  
             }).catch((error)=>{

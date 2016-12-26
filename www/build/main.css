@@ -21749,6 +21749,14 @@ sub {
   }
 }
 
+page-participant ion-input {
+  border-bottom: 1px solid gray;
+}
+
+page-participant ion-col {
+  text-align: center;
+}
+
 page-register {
   ion-label-width: 200px;
   ion-label-text-align: right;
