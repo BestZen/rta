@@ -27,7 +27,7 @@
       <button full ion-button type="submit" [disabled]="!loginCreds.valid">登录</button>
     </div>
     <div padding>
-      <p *ngIf="error" class="error">Error:&nbsp;{{ error.code }}</p>
+      <p *ngIf="error" class="error">Error:&nbsp;{{ error.message }}</p>
     </div>
   </form>
 

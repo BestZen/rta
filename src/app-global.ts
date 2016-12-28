@@ -22,7 +22,8 @@ export class AppGlobal {
         joinRoom: "JOIN_ROOM",
         closeRoom: "CLOSE_ROOM",
         start: "OPEN_ACTIVITY",
-        end: "CLOSE_ACTIVITY"
+        end: "CLOSE_ACTIVITY",
+        answer:"ANSWER"
     };
 
     public apiUser = {

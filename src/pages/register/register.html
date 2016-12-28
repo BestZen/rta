@@ -41,7 +41,7 @@
       <button full ion-button type="submit" [disabled]="!registerCreds.valid">注册</button>
     </div>
     <div padding>
-      <p *ngIf="error" class="error">Error:&nbsp;{{ error.code }}</p>
+      <p *ngIf="error" class="error">Error:&nbsp;{{ error.message }}</p>
     </div>
   </form>
 </ion-content>

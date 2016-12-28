@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {UserProvider} from '../../providers/user-provider'
 import {AppGlobal} from '../../app-global'
+import {UserModel} from '../../models/user-model'
 /*
   Generated class for the Register page.
 
@@ -15,8 +16,8 @@ import {AppGlobal} from '../../app-global'
 })
 export class RegisterPage {
 
-  user :Object = {};
-
+  user :UserModel = new UserModel();
+  error : Error ;
   constructor(public navCtrl: NavController, 
     private _appGlobal:AppGlobal,
     private _userService:UserProvider) {}
@@ -41,11 +42,13 @@ export class RegisterPage {
                 this.navCtrl.pop();
               }  
             }).catch((error)=>{
-              console.log(error);
+              this.error = error;
+              console.log(error.message);
             });
 
-        } catch (EE) {
-            console.log(EE)
+        } catch (error) {
+            this.error = error;
+            console.log(error.message)
         }
   }
 }

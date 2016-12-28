@@ -18,7 +18,8 @@ import {RegisterPage} from '../../pages/register/register'
 export class LoginPage {
 
   public isLoggedIn:boolean ;
-  user :Object = {};
+  user :UserModel = new UserModel();
+  error : Error ;
 
   constructor(private _appGlobal: AppGlobal ,
     public navCtrl: NavController,
@@ -29,8 +30,8 @@ export class LoginPage {
 
   ionViewDidLoad() {
     console.log('Hello LoginPage Page');
-    this.user['phone'] = "13785641151";
-    this.user['password'] = "123456";
+    this.user.phone = "13785641151";
+    this.user.password = "123456";
   }
 
 /** 
@@ -54,11 +55,13 @@ export class LoginPage {
                 this._appGlobal.loginedUser = userModle;
               }  
             }).catch((error)=>{
-              console.log(error);
+              this.error = error;
+              console.log(error.message);
             });
 
-        } catch (EE) {
-            console.log(EE)
+        } catch (error) {
+            this.error = error;
+            console.log(error.message)
         }
 
     }

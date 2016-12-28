@@ -44,11 +44,11 @@ export class UserProvider {
       .catch(this.handleError);
   }
 
-  private extractData(res: Response) {
+  private extractData(res: Response):UserModel {
     let body = res.json();
     console.log("return data is :"+ JSON.stringify(body));
     if (body.status == '1')
-      return body.result;
+      return body.result as UserModel;
     else{
       throw Error(body.message);
     }
