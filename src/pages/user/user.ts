@@ -18,11 +18,17 @@ export class UserPage {
 
   user :UserModel = new UserModel();
   ionViewDidLoad() {
-    console.log('Hello UserPage Page' + this._appGlobal.isUserLoggedIn);
-    console.log(JSON.stringify(this._appGlobal.loginedUser));
-    if(this._appGlobal.isUserLoggedIn){
+    console.log('Hello UserPage Page');
+    if(this._appGlobal.loginedUser != null){
       this.user = this._appGlobal.loginedUser;
+      console.log(JSON.stringify(this._appGlobal.loginedUser));
     }
+  }
+
+
+  quit(){
+    this._appGlobal.loginedUser = null;
+    this._appGlobal.setLoginStatus(false);
   }
 
 }

@@ -21749,8 +21749,21 @@ sub {
   }
 }
 
+page-home ion-select {
+  max-width: none;
+}
+
+page-home ion-card-header div {
+  font-size: 1rem;
+  color: grey;
+}
+
 page-participant ion-input {
   border-bottom: 1px solid gray;
+}
+
+page-participant .input-ios .text-input {
+  padding: 0px;
 }
 
 page-participant ion-col {
@@ -21768,4 +21781,8 @@ page-user ion-icon {
 
 page-user ion-card-header {
   border-bottom: 1px solid gray;
+}
+
+page-user .phone {
+  font-size: 1rem;
 }

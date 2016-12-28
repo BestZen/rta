@@ -1,3 +1,10 @@
 page-home {
+    ion-select {
+        max-width: none;
+    }
 
+    ion-card-header div{
+        font-size: 1rem;
+        color: grey;
+    }
 }

@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>user</ion-title>
+    <ion-title>我</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -21,7 +21,7 @@
           <ion-icon name="logo-angular" color="danger"></ion-icon>
         </ion-avatar>
         <h2>{{user.realName}}</h2>
-        <p>手机号<span>{{user.phone}}</span></p>
+        <p class="phone">手机号<span>{{user.phone}}</span></p>
       </ion-item>
     </ion-card-header>
     <ion-list>
@@ -44,5 +44,11 @@
 
     </button>
     </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-item color="danger" (click)="quit()" text-center>
+        退出
+      </ion-item>
   </ion-card>
 </ion-content>

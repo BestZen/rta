@@ -84,9 +84,20 @@ export class ParticipantPage {
         "room_num":this.roomID
       },
       code:0
-    }
+    };
     this._chatService.messages.next(exitRoom);
   }
 
-
+  answer(value){
+    let answer:Message ={
+      command:this._appGlobal.socketCommand.answer,
+      from:this._appGlobal.loginedUser.userId,
+      to:"SERVER",
+      content:{
+        "text":value
+      },
+      code:0
+    }
+    this._chatService.messages.next(answer);
+  }
 }

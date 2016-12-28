@@ -1,14 +1,21 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Master</ion-title>
-  </ion-navbar>
+  <ion-toolbar>
+    <ion-title>发起者</ion-title>
+    <ion-buttons right>
+      <ion-select [(ngModel)]="mode">
+        <ion-option value="SIMPLE">简单</ion-option>
+        <ion-option value="MATCH">抢答</ion-option>
+    </ion-select>
+    </ion-buttons>
+    
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <ion-card>
     <ion-card-header>
       <h2 text-center></h2>
-      <h3 text-center> 房间ID：<span>{{roomID}}</span></h3>
+      <h2 text-center> 房间ID：<span>{{roomID}}</span></h2>
       <div text-center>当前参与人数：<span>{{count}}</span></div>
     </ion-card-header>
     <ion-card-content>
@@ -28,13 +35,13 @@
 
 
   <ion-row>
-    <ion-col text-center>
+    <ion-col text-center width-33>
       <button ion-button color="secondary" (click)="start()">开始</button>
-    </ion-col>
-    <ion-col>
-        <button ion-button (click)="connect()" [disabled]="connected">创建房间</button>
-    </ion-col>
-    <ion-col text-center>
+    </ion-col >
+    <ion-col text-center width-33>
+        <button ion-button (click)="connect()" [disabled]="connected">开房</button>
+    </ion-col >
+    <ion-col text-center width-33>
       <button ion-button color="danger" (click)="end()">结束</button>
     </ion-col>
   </ion-row>

@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>participant</ion-title>
+    <ion-title>参与者</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -20,19 +20,17 @@
       <h3 text-center> 房间ID：<span>{{roomID}}</span></h3>
       <div text-center>当前参与人数：<span>{{count}}</span></div>
     </ion-card-header>
-    <ion-card-content>
-      <ion-row>
-        <ion-col text-center>
+    <ion-row>
+        <ion-col text-center width-33>
           <button ion-button color="secondary" (click)="start()" [disabled]="connected">加入</button>
         </ion-col>
-        <ion-col text-center>
+        <ion-col text-center width-33>
           <ion-input type="text" placeholder="房间号" [(ngModel)]="roomID" [disabled]="connected"></ion-input>
         </ion-col>
-        <ion-col text-center>
+        <ion-col text-center width-33>
           <button ion-button color="danger" (click)="end()">退出</button>
         </ion-col>
       </ion-row>
-    </ion-card-content>
   </ion-card>
 
 
@@ -58,10 +56,10 @@
           </ion-row>
           <ion-row>
             <ion-col>
-              <button ion-button>A</button>
+              <button ion-button>C</button>
             </ion-col>
             <ion-col>
-              <button ion-button>B</button>
+              <button ion-button>D</button>
             </ion-col>
           </ion-row>
         </div>
