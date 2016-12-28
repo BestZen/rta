@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.rta230675" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>rta</name>
+<widget id="com.bestzen.rta" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>实时问答</name>
   <description>An awesome Ionic/Cordova app.</description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+  <author email="karyjan@qq.com" href="http://github.com/bestzen">BestZen Team</author>
   <content src="index.html"/>
   <access origin="*"/>
   <allow-intent href="http://*/*"/>

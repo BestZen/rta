@@ -1,6 +1,6 @@
 {
-  "name": "rta",
-  "app_id": "",
+  "name": "实时问答",
+  "app_id": "com.bestzen.rta",
   "v2": true,
   "typescript": true
 }
