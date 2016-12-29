@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import { NavController,ViewController } from 'ionic-angular';
+import { NavController,ViewController ,ToastController} from 'ionic-angular';
 import { AppGlobal } from '../../app-global'
 import { UserProvider} from '../../providers/user-provider';
 import { UserModel} from '../../models/user-model'
@@ -24,6 +24,7 @@ export class LoginPage {
   constructor(private _appGlobal: AppGlobal ,
     public navCtrl: NavController,
     public viewCtrl: ViewController,
+    public toastCtrl: ToastController,
     public _loginService: UserProvider) {
     
   }
@@ -56,17 +57,25 @@ export class LoginPage {
               }  
             }).catch((error)=>{
               this.error = error;
-              console.log(error.message);
+              this.showMessage(error.message);
             });
 
         } catch (error) {
             this.error = error;
-            console.log(error.message)
+            this.showMessage(error.message)
         }
 
     }
 
     register(){
       this.navCtrl.push(RegisterPage,{});
+    }
+
+    showMessage(message:string){
+      let toast = this.toastCtrl.create({
+      message: message,
+      duration: 3000
+      });
+      toast.present();
     }
 }
