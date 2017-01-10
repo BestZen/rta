@@ -100,4 +100,8 @@ export class ParticipantPage {
     }
     this._chatService.messages.next(answer);
   }
+
+  onSelected(value){
+    console.log(value);
+  }
 }

@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import *  as echarts from 'echarts';
 import { NavController } from 'ionic-angular';
-import { ChatService, Message } from '../../providers/chat-service'
-import { WebSocketService } from '../../providers/websocket-service'
-import { AppGlobal } from '../../app-global'
+import { ChatService, Message } from '../../providers/chat-service';
+import { WebSocketService } from '../../providers/websocket-service';
+import { AppGlobal } from '../../app-global';
 
 @Component({
   selector: 'page-home',
@@ -17,7 +18,10 @@ export class HomePage {
   quizType: string = "SELECT";
   //答题模式 SIMPLE /MATCH
   mode: string = "SIMPLE";
-  connected :boolean = false;
+  connected: boolean = false;
+
+  @ViewChild('completerate') el_complete_rate: ElementRef;
+  @ViewChild('answergroup') el_answer_group: ElementRef;
 
   constructor(public navCtrl: NavController,
     private _chatService: ChatService,
@@ -26,11 +30,25 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    console.log('Hello LoginPage Page');
+    let chart_completerate = echarts.init(this.el_complete_rate.nativeElement);
+    let option_completerate = {
+      tooltip: {
+        formatter: "{a} <br/>{b} : {c}%"
+      },
+      series: [
+        {
+          name: '业务指标',
+          type: 'gauge',
+          detail: { formatter: '{value}%' },
+          data: [{ value: 50, name: '完成率' }]
+        }
+      ]
+    };
 
+    chart_completerate.setOption(option_completerate);
+    console.log(echarts); // works here
 
-
-
+    this.setOptionResult() ;
     this._chatService.messages.subscribe(msg => {
       if (msg.code === 1000) {
         switch (msg.command) {
@@ -39,7 +57,7 @@ export class HomePage {
             this.connected = true;
             break;
           case this._appGlobal.socketCommand.joinRoom:
-            
+
             break;
           case this._appGlobal.socketCommand.closeRoom:
             break;
@@ -96,6 +114,51 @@ export class HomePage {
       code: 0
     }
     this._chatService.messages.next(endInteract);
+  }
+
+  setOptionResult() {
+    let option_answer_group = {
+        backgroundColor: '#2c343c',
+        title: {
+            text: 'Customized Pie',
+            left: 'center',
+            top: '20',
+            textStyle: {
+                color: '#ccc'
+            }
+        },
+
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        series : [
+            {
+                name:'访问来源',
+                type:'pie',
+                radius : '55%',
+                center: ['50%', '50%'],
+                data:[
+                    {value:335, name:'直接访问'},
+                    {value:310, name:'邮件营销'},
+                    {value:274, name:'联盟广告'},
+                    {value:235, name:'视频广告'},
+                    {value:400, name:'搜索引擎'}
+                ].sort(function (a, b) { return a.value - b.value}),
+                roseType: 'angle',
+                label: {
+                    normal: {
+                        textStyle: {
+                            color: 'rgba(255, 255, 255, 0.3)'
+                        }
+                    }
+                }
+            }
+        ]
+    };
+
+    let chart_answergroup = echarts.init(this.el_answer_group.nativeElement);
+    chart_answergroup.setOption(option_answer_group);
   }
 
 }
