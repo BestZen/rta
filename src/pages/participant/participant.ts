@@ -102,7 +102,6 @@ export class ParticipantPage {
   }
 
   onSelected(value){
-    console.log(value);
     this.answer(value);
   }
 }

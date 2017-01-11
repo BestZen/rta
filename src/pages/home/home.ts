@@ -77,7 +77,7 @@ export class HomePage {
           }
         ]
       };
-
+ 
   constructor(public navCtrl: NavController,
     private _chatService: ChatService,
     private _appGlobal: AppGlobal) {
