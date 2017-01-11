@@ -19,7 +19,7 @@ export class ParticipantPage {
   roomID:string="";
   count:number = 10;
   //答题形式 SELECT ／TRUEFALSE
-  quizType:string = "TRUEFALSE";
+  quizType:string = "SELECT";
   //答题模式 SIMPLE /MATCH
   mode :string = "SIMPLE";
 
@@ -99,5 +99,10 @@ export class ParticipantPage {
       code:0
     }
     this._chatService.messages.next(answer);
+  }
+
+  onSelected(value){
+    console.log(value);
+    this.answer(value);
   }
 }

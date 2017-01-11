@@ -45,38 +45,43 @@
 
     <ion-card-content>
       <div [ngSwitch]="quizType">
-        <div *ngSwitchCase="'SELECT'">
+        <div *ngSwitchCase="'SELECT'" radio-group (ionChange)="onSelected($event)">
           <ion-row>
-            <ion-col>
-              <button ion-button>A</button>
+            <ion-col ion-item>
+                <ion-label>A</ion-label>
+                <ion-radio value="A" item-left></ion-radio>
             </ion-col>
-            <ion-col>
-              <button ion-button>B</button>
+            <ion-col ion-item>
+                <ion-label>B</ion-label>
+                <ion-radio value="B" item-left></ion-radio>
             </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col>
-              <button ion-button>C</button>
+            <ion-col ion-item>
+                <ion-label>C</ion-label>
+                <ion-radio value="C" item-left></ion-radio>
             </ion-col>
-            <ion-col>
-              <button ion-button>D</button>
+            <ion-col ion-item>
+                <ion-label>D</ion-label>
+                <ion-radio value="D" item-left></ion-radio>
             </ion-col>
           </ion-row>
         </div>
 
-        <div *ngSwitchCase="'TRUEFALSE'">
-          <ion-row>
-            <ion-col>
-              <button ion-button>True</button>
+        <div *ngSwitchCase="'TRUEFALSE'" radio-group (ionChange)="onSelected($event)">
+          <ion-row >
+            <ion-col ion-item>
+                 <ion-label>True</ion-label>
+                 <ion-radio value="True" item-left></ion-radio>
             </ion-col>
-            <ion-col>
-              <button ion-button>False</button>
+            <ion-col ion-item>
+                <ion-label>False</ion-label>
+                <ion-radio value="False" item-left></ion-radio>
             </ion-col>
           </ion-row>
         </div>
       </div>
     </ion-card-content>
-
   </ion-card>
 
 </ion-content>
