@@ -13,13 +13,13 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding-vertical="16" padding-horizontal="8"	>
   <form #loginCreds="ngForm" (ngSubmit)="login()" >
-    <ion-item>
+    <ion-item >
       <ion-label>Username</ion-label>
       <ion-input type="text" [(ngModel)]="user.phone" name="phone" required></ion-input>
     </ion-item>
-    <ion-item>
+    <ion-item >
       <ion-label>Password</ion-label>
       <ion-input type="password" [(ngModel)]="user.password" name="password" required></ion-input>
     </ion-item>

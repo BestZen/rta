@@ -180,7 +180,7 @@ export class HomePage {
     } else {
       this.answerMap[result['user_answer']] = this.answerMap[result['user_answer']] + 1;
     }
-    let completerate = Math.round(Object.keys(this.userMap).length / this.count * 100)
+    let completerate = Math.round(Object.keys(this.userMap).length / (this.count-1) * 100)
     //完成率
 
     this.option_completerate.series[0].data[0].value = completerate;

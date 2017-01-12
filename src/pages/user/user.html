@@ -13,7 +13,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
   <ion-card>
     <ion-card-header>
       <ion-item>
@@ -26,29 +26,23 @@
     </ion-card-header>
     <ion-list>
       <button ion-item>
-      <ion-icon name="settings" item-left></ion-icon>
-      设置
-      <ion-icon name="ios-arrow-forward" item-right></ion-icon>
-    </button>
-
+        <ion-icon name="settings" item-left></ion-icon>
+        设置
+      </button>
       <button ion-item>
-      <ion-icon name="clipboard" item-left></ion-icon>
-      反馈
-            <ion-icon name="ios-arrow-forward" item-right></ion-icon>
-    </button>
-
+        <ion-icon name="clipboard" item-left></ion-icon>
+        反馈
+      </button>
       <button ion-item>
-      <ion-icon name="information-circle" item-left></ion-icon>
-      关于
-            <ion-icon name="ios-arrow-forward" item-right></ion-icon>
-
-    </button>
+        <ion-icon name="information-circle" item-left></ion-icon>
+        关于
+      </button>
     </ion-list>
   </ion-card>
 
   <ion-card>
     <ion-item color="danger" (click)="quit()" text-center>
-        退出
-      </ion-item>
+      退出
+    </ion-item>
   </ion-card>
 </ion-content>
